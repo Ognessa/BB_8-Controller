@@ -1,0 +1,36 @@
+<resources>
+    //назва сторінок
+    <string name="app_name">BB_8</string>
+    <string name="tabItem_1">Controller</string>
+    <string name="tabItem_2">Music</string>
+    <string name="tabItem_3">Bluetooth connection</string>
+    <string name="tabItem_4">Setup</string>
+
+    //кнопка в блютузі
+    <string name="getBluetooth">Get Paired Devices</string>
+
+    //якась хрєнь без якої ругається на кнопки
+    <string name="contentDescription">ToDO!</string>
+
+    //назва таблиці
+    <string name="nameOfTable">Enter your value</string>
+    //назви значень
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="forward">Forward</string>
+    <string name="back">Back</string>
+    <string name="stop_for_f_b">Stop for f/b</string>
+    <string name="stop_for_l_r">Stop for l/r</string>
+    //самі значення
+    <string name="right_val">r</string>
+    <string name="left_val">l</string>
+    <string name="forward_val">f</string>
+    <string name="back_val">b</string>
+    <string name="stop_val_f_b">x</string>
+    <string name="stop_val_l_r">y</string>
+
+    //нопка в setup
+    <string name="btnGetSetup">Change settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

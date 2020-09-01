@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ControlFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="300dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/right_btn"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginBottom="50dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/contentDescription"
+            android:scaleType="fitCenter"
+            android:background = "@drawable/imagebuttonstyle"
+            android:src="@drawable/up" />
+
+        <ImageButton
+            android:id="@+id/left_btn"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/contentDescription"
+            android:scaleType="fitCenter"
+            android:background = "@drawable/imagebuttonstyle"
+            android:src="@drawable/down" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/up_btn"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/contentDescription"
+            android:scaleType="fitCenter"
+            android:background = "@drawable/imagebuttonstyle"
+            android:src="@drawable/left" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/contentDescription"
+            android:scaleType="fitCenter"
+            android:background = "@drawable/imagebuttonstyle"
+            android:src="@drawable/right" />
+    </LinearLayout>
+
+
+</FrameLayout>
+
