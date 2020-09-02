@@ -106,7 +106,7 @@ public class BluetoothFragment extends Fragment {
 
                 if(BTinit())
                 {
-                    BTconnect();
+                    getActivity().startService(new Intent(getActivity(), MyService.class));
                 }
 
             }
