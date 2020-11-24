@@ -14,8 +14,7 @@ import java.io.IOException;
 
 public class MusicFragment extends Fragment {
 
-    BluetoothFragment blFrag = new BluetoothFragment();
-    DefaultVariables defVar = new DefaultVariables();
+    BluetoothFragment bf;
 
     ImageButton lastSong, nextSong, playPause;
     TextView songName;
@@ -42,11 +41,11 @@ public class MusicFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 num--;
-                command = defVar.getDefaultLastSong();
+                command = DefaultVariables.getDefaultLastSong();
 
                 try
                 {
-                    blFrag.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
+                    bf.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
                 }
                 catch (IOException e)
                 {
@@ -59,11 +58,11 @@ public class MusicFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 num++;
-                command = defVar.getDefaultNextSong();
+                command = DefaultVariables.getDefaultNextSong();
 
                 try
                 {
-                    blFrag.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
+                    bf.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
                 }
                 catch (IOException e)
                 {
@@ -77,11 +76,11 @@ public class MusicFragment extends Fragment {
             public void onClick(View v) {
                 if(true){
                     playPause.setImageResource(R.drawable.ic_pause);
-                    command = defVar.getDefaultPlay();
+                    command = DefaultVariables.getDefaultPlay();
 
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
+                        bf.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
                     }
                     catch (IOException e)
                     {
@@ -91,11 +90,11 @@ public class MusicFragment extends Fragment {
                 else{
                     playPause.setImageResource(R.drawable.ic_play);
                     flag = !flag;
-                    command = defVar.getDefaultPause();
+                    command = DefaultVariables.getDefaultPause();
 
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
+                        bf.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
                     }
                     catch (IOException e)
                     {

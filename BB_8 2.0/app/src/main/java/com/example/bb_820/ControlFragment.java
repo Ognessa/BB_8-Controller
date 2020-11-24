@@ -9,19 +9,13 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
 import java.io.IOException;
-import java.util.Objects;
-import java.util.UUID;
 
 
 public class ControlFragment extends Fragment{
     //----------------------------------------my code------------------------------------------------------------------
-
-   BluetoothFragment blFrag = new BluetoothFragment();
+    BluetoothFragment bf;
 
     ImageButton forward_btn, left_btn, right_btn, reverse_btn;
 
@@ -54,7 +48,7 @@ public class ControlFragment extends Fragment{
 
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
+                        bf.getOutputStream().write(command.getBytes()); //transmits the value of command to the bluetooth module
                     }
                     catch (IOException e)
                     {
@@ -66,7 +60,7 @@ public class ControlFragment extends Fragment{
                     command = defVar.getDefaultStopY();
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch(IOException e)
                     {
@@ -91,7 +85,7 @@ public class ControlFragment extends Fragment{
 
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch (IOException e)
                     {
@@ -103,7 +97,7 @@ public class ControlFragment extends Fragment{
                     command = defVar.getDefaultStopY();
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch(IOException e)
                     {
@@ -126,7 +120,7 @@ public class ControlFragment extends Fragment{
 
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch (IOException e)
                     {
@@ -138,7 +132,7 @@ public class ControlFragment extends Fragment{
                     command = defVar.getDefaultStopX();
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch(IOException e)
                     {
@@ -161,7 +155,7 @@ public class ControlFragment extends Fragment{
 
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch (IOException e)
                     {
@@ -173,7 +167,7 @@ public class ControlFragment extends Fragment{
                     command = defVar.getDefaultStopX();
                     try
                     {
-                        blFrag.getOutputStream().write(command.getBytes());
+                        bf.getOutputStream().write(command.getBytes());
                     }
                     catch(IOException e)
                     {

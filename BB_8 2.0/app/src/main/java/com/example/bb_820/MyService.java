@@ -24,7 +24,7 @@ public class MyService extends Service {
 
     final int handlerState = 0;                        //used to identify handler message
     Handler bluetoothIn;
-    private BluetoothAdapter btAdapter = null;
+    private BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
 
     private ConnectingThread mConnectingThread;
     private ConnectedThread mConnectedThread;
@@ -33,7 +33,8 @@ public class MyService extends Service {
     // SPP UUID service - this should work for most devices
     private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     // String for MAC address
-    private final String MAC_ADDRESS = bf.getDEVICE_ADDRESS();
+   /* private final String MAC_ADDRESS = bf.getDEVICE_ADDRESS();*/
+    private final String MAC_ADDRESS = "98:D3:51:F5:E3:F8";
 
     private StringBuilder recDataString = new StringBuilder();
 
@@ -62,9 +63,6 @@ public class MyService extends Service {
                 recDataString.delete(0, recDataString.length());                    //clear all string data
             }
         };
-
-
-        btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
         checkBTState();
         return super.onStartCommand(intent, flags, startId);
     }
@@ -116,7 +114,8 @@ public class MyService extends Service {
     }
 
     // New Class for Connecting Thread
-    private class ConnectingThread extends Thread {
+    public class ConnectingThread extends Thread {
+
         private final BluetoothSocket mmSocket;
         private final BluetoothDevice mmDevice;
 
@@ -186,7 +185,11 @@ public class MyService extends Service {
     }
 
     // New Class for Connected Thread
-    private class ConnectedThread extends Thread {
+    public class ConnectedThread extends Thread {
+        public OutputStream getmmOutStream() {
+            return mmOutStream;
+        }
+
         private final InputStream mmInStream;
         private final OutputStream mmOutStream;
 

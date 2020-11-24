@@ -29,26 +29,26 @@ import java.util.UUID;
 public class BluetoothFragment extends Fragment {
 
     private String DEVICE_ADDRESS = "98:D3:51:F5:E3:F8"; //MAC Address of Bluetooth Module
-    private final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+    private static final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    private BluetoothDevice device;
-    private BluetoothSocket socket;
-    private OutputStream outputStream;
+    BluetoothDevice device;
+    OutputStream outputStream;
+
+    Thread t;
 
     private ListView lstvw;
     TextView text;
     Button bluetooth_connect_btn, btn;
     private ArrayAdapter aAdapter;
     private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
+    private BluetoothSocket socket;
 
     public String getDEVICE_ADDRESS() {
         return DEVICE_ADDRESS;
     }
-
     public void setDEVICE_ADDRESS(String DEVICE_ADDRESS) {
         this.DEVICE_ADDRESS = DEVICE_ADDRESS;
     }
-
     public OutputStream getOutputStream() {
         return outputStream;
     }
@@ -103,12 +103,15 @@ public class BluetoothFragment extends Fragment {
         bluetooth_connect_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(BTinit())
-                {
-                    getActivity().startService(new Intent(getActivity(), MyService.class));
+                   // getActivity().startService(new Intent(getActivity(), MyService.class));
+                if(BTinit()){
+                    t = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                           BTconnect();
+                        }
+                    });
                 }
-
             }
         });
 
